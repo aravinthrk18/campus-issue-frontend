@@ -1,7 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 import RoleSelect from "./pages/RoleSelect";
 import Login from "./pages/Login";
-import StudentDashboard from "./pages/StudentDashBoard";
+
+
+import StudentDashboard from "./pages/StudentDashboard";
 
 import AdminDashboard from "./pages/AdminDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
