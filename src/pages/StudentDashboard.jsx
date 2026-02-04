@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "./StudentDashboard.css";
+import "./StudentDashBoard.css";
 
 function StudentDashboard() {
   const [title, setTitle] = useState("");
