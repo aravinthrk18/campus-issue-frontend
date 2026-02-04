@@ -1,0 +1,204 @@
+/* ================= ROLE PAGE ================= */
+
+.role-page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  box-sizing: border-box;
+
+  background:
+    radial-gradient(ellipse at top, #ffffff 0%, #f8fafc 40%),
+    radial-gradient(ellipse at bottom, #f1f5f9 0%, #e2e8f0 100%);
+
+  background-attachment: fixed;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  position: relative;
+}
+
+.role-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(99,102,241,0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(168,85,247,0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* ================= CARD ================= */
+
+.role-card {
+  width: 100%;
+  max-width: 440px;
+  padding: 56px 48px;
+  border-radius: 28px;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.02),
+    0 1px 3px rgba(0,0,0,0.02),
+    0 6px 16px rgba(0,0,0,0.04),
+    0 24px 48px rgba(0,0,0,0.06);
+}
+
+/* Top highlight */
+.role-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: clamp(16px, 4vw, 24px);
+  right: clamp(16px, 4vw, 24px);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,1) 30%,
+    rgba(255,255,255,1) 70%,
+    transparent 100%
+  );
+  border-radius: 28px 28px 0 0;
+}
+
+/* ================= TEXT ================= */
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #1e293b 0%, #475569 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: #64748b;
+  margin-bottom: 40px;
+}
+
+/* ================= ACTIONS ================= */
+
+.role-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.role-btn {
+  padding: 18px 24px;
+  border-radius: 14px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  min-height: 48px;
+  color: #fff;
+
+  transition:
+    transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+/* Shimmer */
+.role-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  left: -100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,0.25) 50%,
+    transparent 100%
+  );
+  transition: left 0.5s ease;
+}
+
+.role-btn:hover::after {
+  left: 100%;
+}
+
+/* Student */
+.role-btn.student {
+  background: linear-gradient(135deg, #3b82f6, #2563eb, #1d4ed8);
+}
+
+/* Admin */
+.role-btn.admin {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed, #6d28d9);
+}
+
+.role-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+.role-btn:active {
+  transform: scale(0.97);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 599px) {
+  .role-card {
+    padding: 40px 32px;
+    border-radius: 24px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 479px) {
+  .role-page {
+    padding: 16px;
+    padding-top: 10vh;
+    align-items: flex-start;
+  }
+
+  .role-card {
+    padding: 32px 24px;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 359px) {
+  .title {
+    font-size: 20px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+  }
+}
+
+/* Touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .role-btn:hover {
+    transform: none;
+  }
+
+  .role-btn:active {
+    filter: brightness(0.95);
+  }
+}
